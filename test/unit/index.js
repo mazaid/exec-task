@@ -276,7 +276,7 @@ describe('ExecTask', function() {
 
                 var value = 'exec';
 
-                task.exec = value;
+                task.type = value;
 
                 assert.deepEqual(task.type, value);
 
