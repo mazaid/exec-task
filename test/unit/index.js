@@ -271,6 +271,20 @@ describe('ExecTask', function() {
                 assert.deepEqual(data.checkTaskId, value);
             });
 
+            it('#type', function () {
+                var task = new ExecTask();
+
+                var value = 'exec';
+
+                task.exec = value;
+
+                assert.deepEqual(task.type, value);
+
+                var data = task.toObject();
+
+                assert.deepEqual(data.type, value);
+            });
+
 
         });
 

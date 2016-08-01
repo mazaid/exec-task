@@ -80,6 +80,24 @@ class ExecTask {
     }
 
     /**
+     * type getter
+     *
+     * @return {String}
+     */
+    get type() {
+        return this._task.type;
+    }
+
+    /**
+     * type setter
+     *
+     * @param  {String} value
+     */
+    set type(value) {
+        this._task.type = value;
+    }
+
+    /**
      * data getter
      *
      * @return {Object}
