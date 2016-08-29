@@ -25,7 +25,8 @@ describe('ExecTask', function() {
             var task = new ExecTask(raw);
 
             task.validate()
-                .then(() => {
+                .then((validTask) => {
+                    assert.deepEqual(validTask, task);
                     assert.equal(task.isValid(), true);
                     done();
                 })
