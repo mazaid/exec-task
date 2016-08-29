@@ -91,9 +91,13 @@ describe('ExecTask', function() {
 
                 var task = new ExecTask(raw);
 
+                var valid = JSON.parse(JSON.stringify(task._task));
+
+                valid.timeout = 60;
+
                 task.serialize()
                     .then((serialized) => {
-                        assert.equal(JSON.stringify(raw), serialized);
+                        assert.equal(JSON.stringify(valid), serialized);
                         done();
                     })
                     .catch((error) => {

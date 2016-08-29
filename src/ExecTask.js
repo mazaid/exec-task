@@ -206,7 +206,14 @@ class ExecTask {
                 return reject(this._error('no data', ErrorCodes.NO_DATA));
             }
 
-            resolve(JSON.stringify(this._task));
+            this.validate()
+                .then(() => {
+                    resolve(JSON.stringify(this._task));
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+
         });
 
     }
