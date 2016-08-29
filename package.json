@@ -1,6 +1,6 @@
 {
   "name": "mazaid-exec-task",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "mazaid ExecTask DTO",
   "main": "index.js",
   "scripts": {
