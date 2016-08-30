@@ -31,6 +31,7 @@ describe('ExecTask', function() {
                     done();
                 })
                 .catch((error) => {
+                    console.log(error);
                     done(error);
                 });
         });
@@ -246,6 +247,35 @@ describe('ExecTask', function() {
                 var data = task.toObject();
 
                 assert.deepEqual(data.data, value);
+            });
+
+            it('#status', function () {
+                var task = new ExecTask({id: 'asd'});
+
+                assert.deepEqual(task.status, task.Statuses.CREATED);
+
+                task.queued();
+
+                assert.deepEqual(task.status, task.Statuses.QUEUED);
+
+                task.started();
+
+                assert.deepEqual(task.status, task.Statuses.STARTED);
+
+                task.finished();
+
+                assert.deepEqual(task.status, task.Statuses.FINISHED);
+            });
+
+            it('#timeout', function () {
+                var task = new ExecTask();
+
+                // default
+                assert.equal(task.timeout, 60);
+
+                task.timeout = 30;
+
+                assert.equal(task.timeout, 30);
             });
 
             it('#result', function () {
