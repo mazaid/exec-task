@@ -1,9 +1,12 @@
 {
   "name": "mazaid-exec-task",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "mazaid ExecTask DTO",
   "main": "index.js",
-  "files": ["index.js", "src"],
+  "files": [
+    "index.js",
+    "src"
+  ],
   "scripts": {
     "docs": "rm -rf ./docs && ./node_modules/.bin/jsdoc ./ -c ./.jsdoc.json --verbose && open ./docs/index.html",
     "tests": "./node_modules/.bin/mocha ./test/",
