@@ -27,7 +27,7 @@ class ExecTask {
      * @constructor
      * @param  {Object} rawTask
      */
-    constructor(rawTask) {
+    constructor (rawTask) {
 
         this.Statuses = Statuses;
 
@@ -60,7 +60,7 @@ class ExecTask {
      *
      * @return {String}
      */
-    get id() {
+    get id () {
         return this._task.id;
     }
 
@@ -69,7 +69,7 @@ class ExecTask {
      *
      * @param  {String} value
      */
-    set id(value) {
+    set id (value) {
         this._task.id = value;
     }
 
@@ -78,7 +78,7 @@ class ExecTask {
      *
      * @return {String}
      */
-    get checkTaskId() {
+    get checkTaskId () {
         return this._task.checkTaskId;
     }
 
@@ -87,7 +87,7 @@ class ExecTask {
      *
      * @param  {String} value
      */
-    set checkTaskId(value) {
+    set checkTaskId (value) {
         this._task.checkTaskId = value;
     }
 
@@ -96,7 +96,7 @@ class ExecTask {
      *
      * @return {String}
      */
-    get timeout() {
+    get timeout () {
         return this._task.timeout;
     }
 
@@ -105,7 +105,7 @@ class ExecTask {
      *
      * @param  {String} value
      */
-    set timeout(value) {
+    set timeout (value) {
         this._task.timeout = value;
     }
 
@@ -114,7 +114,7 @@ class ExecTask {
      *
      * @return {String}
      */
-    get type() {
+    get type () {
         return this._task.type;
     }
 
@@ -123,7 +123,7 @@ class ExecTask {
      *
      * @param  {String} value
      */
-    set type(value) {
+    set type (value) {
         this._task.type = value;
     }
 
@@ -132,7 +132,7 @@ class ExecTask {
      *
      * @return {Object}
      */
-    get data() {
+    get data () {
         return this._task.data;
     }
 
@@ -141,7 +141,7 @@ class ExecTask {
      *
      * @param  {Object} value
      */
-    set data(value) {
+    set data (value) {
         this._task.data = value;
     }
 
@@ -150,7 +150,7 @@ class ExecTask {
      *
      * @return {String}
      */
-    get status() {
+    get status () {
         return this._task.status;
     }
 
@@ -159,7 +159,7 @@ class ExecTask {
      *
      * @return {Number}
      */
-    get creationDate() {
+    get creationDate () {
         return this._task.creationDate;
     }
 
@@ -168,7 +168,7 @@ class ExecTask {
      *
      * @return {Number}
      */
-    get timeoutDate() {
+    get timeoutDate () {
         return this._task.timeoutDate;
     }
 
@@ -177,7 +177,7 @@ class ExecTask {
      *
      * @return {Number}
      */
-    get queuedDate() {
+    get queuedDate () {
         return this._task.queuedDate;
     }
 
@@ -186,7 +186,7 @@ class ExecTask {
      *
      * @return {Number}
      */
-    get startDate() {
+    get startDate () {
         return this._task.startDate;
     }
 
@@ -195,7 +195,7 @@ class ExecTask {
      *
      * @return {Number}
      */
-    get finishDate() {
+    get finishDate () {
         return this._task.finishDate;
     }
 
@@ -204,7 +204,7 @@ class ExecTask {
      *
      * @return {Object}
      */
-    get result() {
+    get result () {
         return this._task.result;
     }
 
@@ -213,14 +213,14 @@ class ExecTask {
      *
      * @param  {Object} value
      */
-    set result(value) {
+    set result (value) {
         this._task.result = value;
     }
 
     /**
      * set creationDate
      */
-    created() {
+    created () {
         this._task.status = Statuses.CREATED;
         this._task.creationDate = this._time(true);
     }
@@ -230,7 +230,7 @@ class ExecTask {
      *
      * TODO tests
      */
-    queued() {
+    queued () {
         this._task.status = Statuses.QUEUED;
         this._task.queuedDate = this._time(true);
     }
@@ -238,7 +238,7 @@ class ExecTask {
     /**
      * set startDate
      */
-    started() {
+    started () {
         this._task.status = Statuses.STARTED;
         this._task.startDate = this._time(true);
     }
@@ -246,7 +246,7 @@ class ExecTask {
     /**
      * set finishDate
      */
-    finished() {
+    finished () {
         this._task.status = Statuses.FINISHED;
         this._task.finishDate = this._time(true);
     }
@@ -256,7 +256,7 @@ class ExecTask {
      *
      * @return {Boolean}
      */
-    isValid() {
+    isValid () {
         return this._valid;
     }
 
@@ -265,7 +265,7 @@ class ExecTask {
      *
      * @return {Promise}
      */
-    validate() {
+    validate () {
 
         return new Promise((resolve, reject) => {
             validate(this._task)
@@ -296,7 +296,7 @@ class ExecTask {
      *
      * @return {Promise}
      */
-    serialize() {
+    serialize () {
 
         return new Promise((resolve, reject) => {
             if (!this._task || Object.keys(this._task).length === 0) {
@@ -321,7 +321,7 @@ class ExecTask {
      * @param  {String} raw
      * @return {Promise}
      */
-    deserialize(raw) {
+    deserialize (raw) {
 
         return new Promise((resolve, reject) => {
 
@@ -361,7 +361,7 @@ class ExecTask {
      *
      * @return {Object}
      */
-    toObject() {
+    toObject () {
         return JSON.parse(JSON.stringify(this._task));
     }
 
@@ -372,7 +372,7 @@ class ExecTask {
      * @param  {String} code
      * @return {Error}
      */
-    _error(message, code) {
+    _error (message, code) {
         return error(message, code, entityName);
     }
 
@@ -382,7 +382,7 @@ class ExecTask {
      * @param {Boolean} round
      * @return {Number}
      */
-    _time(round) {
+    _time (round) {
         var ts = (new Date()).getTime() / 1000;
 
         if (round) {
