@@ -29,6 +29,8 @@ class ExecTask {
      */
     constructor (rawTask) {
 
+        this.entityName = entityName;
+
         this.Statuses = Statuses;
 
         this.ErrorCodes = ErrorCodes;
