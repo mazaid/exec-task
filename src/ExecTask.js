@@ -135,7 +135,7 @@ class ExecTask {
      * @return {Object}
      */
     get data () {
-        return this._task.data;
+        return JSON.parse(JSON.stringify(this._task.data));
     }
 
     /**
